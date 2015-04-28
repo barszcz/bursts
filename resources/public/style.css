@@ -1,0 +1,21 @@
+@import url(http://fonts.googleapis.com/css?family=Vollkorn);
+@import url(http://fonts.googleapis.com/css?family=Source+Code+Pro);
+@import url(http://fonts.googleapis.com/css?family=Merriweather);
+body {
+    font-family: Merriweather;
+    color: #444;
+}
+
+.body {
+    max-width: 500px;
+}
+
+pre {
+}
+
+code {
+    font-family: Source Code Pro;
+    font-size: 14px;
+    border-radius: 5px;
+}
+
