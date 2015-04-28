@@ -26,23 +26,6 @@
      [:h1 "Transient Random-noise Bursts With Announcements"]]
     page]))
 
-#_(defn footnote [text {:keys [code codeblock] :as state}]
-  [(if (or code codeblock)
-     text
-     (if-let [[_ reference note :as matches] (re-matches #"^\[\^(.+)\]\: (.*)$" text)]
-       (str "<a name=\"" reference "\"></a><p><sup>&#91;" reference "&#93; </sup>" note " <a href=\"#ref-" reference "\">&#8617;</a></p>")
-       text))
-   state])
-
-#_(defn footnote-ref [text state]
-  [(if (:code state)
-     text
-     (str/replace
-       text
-       #"\[\^.+\]"
-       #(let [reference (subs % 2 (dec (count %)))]
-           (str "<sup><a name=\"ref-" reference "\" href=\"#" reference "\">[" reference "]</a></sup>"))))
-   state])
 
 
 (defn build-post [page]
