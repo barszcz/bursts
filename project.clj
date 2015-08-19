@@ -9,6 +9,8 @@
                  [stasis "2.2.2"]
                  [hiccup "1.0.5"]
                  [markdown-clj "0.9.65"]
-                 [org.clojure/algo.generic "0.1.2"]]
+                 [org.clojure/algo.generic "0.1.2"]
+                 [optimus "0.17.1"]
+                 [optimus-sass "0.0.3"]]
   :ring {:handler bursts.core/app}
   :profiles {:dev {:plugins [[lein-ring "0.9.3"]]}})

@@ -1,8 +1,10 @@
 @import url(http://fonts.googleapis.com/css?family=Vollkorn);
 @import url(http://fonts.googleapis.com/css?family=Source+Code+Pro);
 @import url(http://fonts.googleapis.com/css?family=Merriweather);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700);
+
 body {
-    font-family: Merriweather;
+    font-family: Open Sans;
     color: #444;
 }
 
@@ -18,4 +20,6 @@ code {
     font-size: 14px;
     border-radius: 5px;
 }
+
+
 

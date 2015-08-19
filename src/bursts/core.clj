@@ -1,5 +1,10 @@
 (ns bursts.core
   (:require [clojure.java.io :as io]
+            ;; [optimus.assets :as assets]
+            ;; [optimus.optimizations :as optimizations]
+            ;; [optimus.prime :as optimus]
+            ;; [optimus.strategies :refer [serve-live-assets]]
+            ;; [optimus-sass.core]
             [hiccup.page :refer [html5]]
             [stasis.core :as stasis]
             [clojure.string :as str]
@@ -16,14 +21,15 @@
     [:meta {:charset "utf-8"}]
     [:meta {:name "viewport"
             :content "width=device-width, initial-scale=1.0"}]
-    [:title "Tech blog"]
+    [:title "Jake's Blog"]
     [:link {:rel "stylesheet" :href "/tomorrow-night.css"}]
+    [:link {:rel "stylesheet" :href "/typeplate.css"}]
     [:link {:rel "stylesheet" :href "/style.css"}]
     [:script {:src "/highlight.pack.js"}]
     [:script "hljs.initHighlightingOnLoad();"]]
    [:body
     [:div.logo
-     [:h1 "Transient Random-noise Bursts With Announcements"]]
+     [:h2.typl8-gamma "Transient Random-noise Bursts With Announcements"]]
     page]))
 
 
@@ -35,7 +41,7 @@
         tags (map name tags)
         content (md content)]
     [:div.body
-     [:h1.post-title title]
+     [:h2.post-title title]
      [:div.content content]
      [:p "Tags: " (str/join " " tags)]]))
 

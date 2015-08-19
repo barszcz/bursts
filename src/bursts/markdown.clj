@@ -31,8 +31,7 @@
             "[" reference "]"]]))))
    state])
 
-(def transformers
-  (cons footnote (cons footnote-ref transformer-vector)))
+(def transformers (list* footnote footnote-ref transformer-vector))
 
 (defn md [content]
   (md-to-html-string content :replacement-transformers transformers))
