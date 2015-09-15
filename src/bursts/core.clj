@@ -10,7 +10,8 @@
             [clojure.string :as str]
             [clojure.edn :as edn]
             [clojure.pprint :as pp]
-            [bursts.markdown :refer [md]])
+            [bursts.markdown :refer [md]]
+            [bursts.components :refer [build-page]])
   (:use [markdown.core]
         [markdown.transformers]
         [clojure.algo.generic.functor :only (fmap)]))
@@ -32,7 +33,7 @@
      [:h2.typl8-gamma "Transient Random-noise Bursts With Announcements"]]
     page]))
 
-
+(def 💩 "💩")
 
 (defn build-post [page]
   (let [[meta content] (str/split page #"-----")
@@ -41,28 +42,41 @@
         tags (map name tags)
         content (md content)]
     [:div.body
-     [:h2.post-title title]
+     [:h2.post-title.typl8-delta title]
      [:div.content content]
      [:p "Tags: " (str/join " " tags)]]))
 
 (defn build-posts [posts]
-  (map (comp layout-page build-post) posts))
+  (map (comp (partial build-page "Jake's Blog") build-post) posts))
 
 (defn post-pages [pages]
   (zipmap (map #(str/replace % #"\.md$" "/") (keys pages))
           (build-posts (vals pages))))
 
-(defn partial-pages [pages]
-  (zipmap (keys pages)
-          (map layout-page (vals pages))))
+;; (defn partial-pages [pages]
+;;   (zipmap (keys pages)
+;;           (map layout-page (vals pages))))
+
+(defn post-map [post]
+  (let [[meta content] (str/split post #"-----")
+        meta (edn/read-string meta)
+        {:keys [title tags]} meta
+        tags (map name tags)
+        content (md content)]
+    {:title title :tags tags :content content}))
+
+(def posts-map
+  (let [raw-posts (stasis/slurp-directory
+                   "resources/md" #"\.md$")]
+    (fmap post-map raw-posts)))
 
 (defn get-pages []
   (stasis/merge-page-sources
    {:public
     (stasis/slurp-directory "resources/public" #".*\.(html|css|js)$")
-    :partials
-    (partial-pages (stasis/slurp-directory "resources/partials" #".*\.html$"))
-    :markdown
+    ;; :partials
+    ;; (partial-pages (stasis/slurp-directory "resources/partials" #".*\.html$"))
+    :posts
     (post-pages (stasis/slurp-directory "resources/md" #"\.md$"))}))
 
 (def app (stasis/serve-pages get-pages))

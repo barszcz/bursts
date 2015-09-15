@@ -2,15 +2,58 @@
 @import url(http://fonts.googleapis.com/css?family=Source+Code+Pro);
 @import url(http://fonts.googleapis.com/css?family=Merriweather);
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700);
+@import url(https://fonts.googleapis.com/css?family=Gentium+Basic:400,700,400italic,700italic);
+@import 'fonts.css';
+
+/* html, body, section, article, */
+/* h1, h2, h3, p, strong, em, a, ol, ul, li { */
+/*   margin: 0; */
+/*   border: 0; */
+/*   padding: 0; */
+/*   outline: 0; */
+/*   box-sizing: inherit; */
+/*   font: inherit; */
+/*   text-decoration: inherit; */
+/*   text-align: inherit; */
+/*   color: inherit; */
+/*   background: transparent; */
+/* } */
+
+html {
+    font-size: 150%;
+}
 
 body {
-    font-family: Open Sans;
+    font-family: Charter;
     color: #444;
+    background-color: #FFF;
+    /* font-size: 18px; */
+}
+
+a {
+    color: #A00;
+    text-decoration: none;
+    transition: color .25s;
+}
+
+a:hover {
+    color: #F00;
+    transition: color .25s;
+}
+
+h1, h2, h3 {
+    color: #222;
+    font-family: Open Sans;
+    font-weight: normal;
 }
 
 .body {
-    max-width: 500px;
+    max-width: 50%;
+    margin: auto;
 }
+
+.post-title {}
+
 
 pre {
 }
@@ -21,5 +64,18 @@ code {
     border-radius: 5px;
 }
 
+.logo {
+    width: 100%;
+    text-align: center;
+    font-family: Open Sans;
+    /* font-weight: normal; */
+}
+
+.logo h2 {
+    text-transform: uppercase;
+    /* font-weight: normal; */
+    width: 50%;
+    margin: 10px auto;
+}
 
 

@@ -5,7 +5,7 @@
 ## Features (so far)
 * Markdown parsing with [markdown-clj](https://github.com/yogthos/markdown-clj), extended with support for footnotes
 * Uses edn for post metadata (e.g. tags; most of my envisioned features are NYI)
-* Syntax Highlighting courtesy of [highlight.js](https://highlightjs.org)
+* Syntax highlighting, courtesy of [highlight.js](https://highlightjs.org)
 
 ## Wishlist
 * Restructure how pages/posts are laid out to follow a React/Reagent-like, components-based approach
